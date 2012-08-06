@@ -1,0 +1,16 @@
+<h1>Create new tracker</h1>
+<form accept-charset="UTF-8" action="/trackers" method="post">
+  <div>
+    <label for="tracker_name">Name</label><br />
+    <input type="text" size="30" id="tracker_name" name="tracker[name]" />
+  </div>
+  <div>
+    <label for="tracker_url">URL</label><br />
+    <input type="text" size="60" id="tracker_url" name="tracker[url]" />
+  </div>
+  <div>
+    <label for="tracker_query">Query</label><br />
+    <input type="text" size="60" id="tracker_query" name="tracker[query]" />
+  </div>
+  <input type="submit" value="Create" />
+</form>

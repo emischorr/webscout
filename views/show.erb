@@ -1,0 +1,19 @@
+<h1><%= h @tracker.display_name %></h1>
+<div class="field">
+  <label>Document</label><br />
+  <span><%= h @tracker.url %></span>
+</div>
+<div class="field">
+  <label>Query</label><br />
+  <span><%= h @tracker.query %></span>
+</div>
+
+<% if @tracker.last_check_at %>
+<h2>Tracker Changes</h2>
+  <div class="info sub-headline">last check <%= time_ago @tracker.last_check_at %> ago</div>
+  <ul>
+  <% @tracker.changes.each do |change| %>
+    <li><%= h change %></li>
+  <% end %>
+  </ul>
+<% end %>
