@@ -70,7 +70,7 @@ end
 post '/trackers' do
   @tracker = Tracker.create(params[:tracker])
   if @tracker
-    Tracker.start_worker(@tracker.id, settings.async_worker?)
+    Tracker.start_worker(@tracker.id, settings.sync_worker?)
     redirect to("/trackers/#{@tracker.id}")
   end
 end
