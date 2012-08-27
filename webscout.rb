@@ -9,7 +9,9 @@ configure do
   uri = URI.parse(redisUri) 
   REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
 
-  puts "Using synchronized workers!"
+  MIN_TRACK_INTERVAL = 15 # minutes
+
+  puts "Using synchronized workers!" if ENV["SYNC_WORKER"]
   set :sync_worker, ENV["SYNC_WORKER"]
 end
 

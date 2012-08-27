@@ -55,7 +55,7 @@ class Tracker
   def self.start_worker(tracker_id, sync=false)
     if sync
       tracker = Tracker.find(tracker_id)
-      tracker.check_document if tracker && tracker.last_check_at.to_i < Time.now.to_i - 20*60
+      tracker.check_document if tracker && tracker.last_check_at.to_i < Time.now.to_i - MIN_TRACK_INTERVAL*60
     else
       ScoutWorker.perform_async tracker_id
     end
